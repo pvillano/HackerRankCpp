@@ -1,0 +1,3 @@
+project(Playground)
+
+add_library(sherlock_and_anagrams_lib STATIC sherlock_and_anagrams.cpp sherlock_and_anagrams.h)

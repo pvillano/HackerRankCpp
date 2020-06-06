@@ -6,4 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(src/ctci_ransom_note)
 add_subdirectory(src/ctci_ransom_note)
 
+include_directories(src/two_strings)
+add_subdirectory(src/two_strings)
+
+include_directories(src/sherlock_and_anagrams)
+add_subdirectory(src/sherlock_and_anagrams)
+
 add_subdirectory(test)

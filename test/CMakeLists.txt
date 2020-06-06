@@ -2,7 +2,12 @@ project(tests)
 add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_executable(Google_Tests_run test_ctci_ransom_note.cpp)
+add_executable(test_ctci_ransom_note test_ctci_ransom_note.cpp)
 
-target_link_libraries(Google_Tests_run ctci_ransom_note_lib)
-target_link_libraries(Google_Tests_run gtest gtest_main)
+target_link_libraries(test_ctci_ransom_note ctci_ransom_note_lib)
+target_link_libraries(test_ctci_ransom_note gtest gtest_main)
+
+add_executable(test_sherlock_and_anagrams test_sherlock_and_anagrams.cpp)
+
+target_link_libraries(test_sherlock_and_anagrams sherlock_and_anagrams_lib)
+target_link_libraries(test_sherlock_and_anagrams gtest gtest_main)
