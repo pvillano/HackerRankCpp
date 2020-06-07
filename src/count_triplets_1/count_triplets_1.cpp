@@ -4,25 +4,30 @@
 
 #include "count_triplets_1.h"
 
+class pairHash{
+public:
+    size_t operator()(const pair<long, long> &k) const{
+        return k.first ^ (13 * k.second);
+    }
+};
 
 long long countTriplets(vector<long> arr, long r) {
-    map<long, long> count_map;
-    sort(arr.begin(), arr.end());
-    for (long item : arr) {
-        ++count_map[item];
-    }
-    long long count = 0;
-    if (r == 1) {
-        for (auto kv : count_map) {
-            count += (kv.second * (kv.second - 1) * (kv.second - 2)) / 6;
+    long count = 0;
+    unordered_map<pair<long, long>, int, pairHash> seen_pairs;
+    unordered_map<long, long> seen_singles;
+    for (auto it = arr.rbegin(); it != arr.rend(); ++it) {
+        if (seen_pairs.count({*it * r, *it * r * r})){
+            count += seen_pairs[{*it * r, *it * r * r}];
         }
-        return count;
+        if (seen_singles.count(*it * r)) {
+            seen_pairs[{*it, *it * r}] += seen_singles[*it * r];
+        }
+        ++seen_singles[*it];
     }
-    for (auto it = count_map.begin(); it != count_map.end(); ++it) {
-        if (!(it->first % (r * r))) { //divisible by r
-            if (count_map.count(it->first / r) && count_map.count(it->first / (r * r))) {
-                count += it->second * count_map[it->first / r] * count_map[it->first / (r * r)];
-            }
+    if (r==1){
+        count=0;
+        for(auto kv : seen_singles){
+            count += (kv.second * (kv.second - 1) * (kv.second - 2)) / 6;
         }
     }
     return count;
