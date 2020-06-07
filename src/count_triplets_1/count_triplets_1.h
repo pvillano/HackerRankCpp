@@ -6,10 +6,10 @@
 #define PLAYGROUND_COUNT_TRIPLETS_1_H
 
 #include <vector>
-
+#include <map>
 using namespace std;
 
-long countTriplets(vector<long> arr, long r);
+long long countTriplets(vector<long> arr, long r);
 
 
 #endif //PLAYGROUND_COUNT_TRIPLETS_1_H

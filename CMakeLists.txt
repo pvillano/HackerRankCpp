@@ -12,4 +12,7 @@ add_subdirectory(src/two_strings)
 include_directories(src/sherlock_and_anagrams)
 add_subdirectory(src/sherlock_and_anagrams)
 
+include_directories(src/count_triplets_1)
+add_subdirectory(src/count_triplets_1)
+
 add_subdirectory(test)

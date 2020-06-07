@@ -5,16 +5,23 @@
 #include "count_triplets_1.h"
 
 
-long countTriplets(vector<long> arr, long r) {
-    long count = 0;
+long long countTriplets(vector<long> arr, long r) {
+    map<long, long> count_map;
     sort(arr.begin(), arr.end());
-    for (int i = 0; i < arr.size(); ++i) {
-        for (int j = i + 1; j < arr.size(); ++j) {
-            // could be replaced with binary search
-            for (int k = j + 1; k < arr.size(); ++k) {
-                if (arr[i] * r == arr[j] && arr[j] * r == arr[k]) {
-                    ++count;
-                }
+    for (long item : arr) {
+        ++count_map[item];
+    }
+    long long count = 0;
+    if (r == 1) {
+        for (auto kv : count_map) {
+            count += (kv.second * (kv.second - 1) * (kv.second - 2)) / 6;
+        }
+        return count;
+    }
+    for (auto it = count_map.begin(); it != count_map.end(); ++it) {
+        if (!(it->first % (r * r))) { //divisible by r
+            if (count_map.count(it->first / r) && count_map.count(it->first / (r * r))) {
+                count += it->second * count_map[it->first / r] * count_map[it->first / (r * r)];
             }
         }
     }

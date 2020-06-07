@@ -11,3 +11,10 @@ add_executable(test_sherlock_and_anagrams test_sherlock_and_anagrams.cpp)
 
 target_link_libraries(test_sherlock_and_anagrams sherlock_and_anagrams_lib)
 target_link_libraries(test_sherlock_and_anagrams gtest gtest_main)
+
+add_executable(test_count_triplets_1 test_count_triplets_1.cpp)
+
+target_link_libraries(test_count_triplets_1 count_triplets_1_lib)
+target_link_libraries(test_count_triplets_1 gtest gtest_main)
+
+configure_file(test_count_triplets_1_input_06.txt test_count_triplets_1_input_06.txt COPYONLY)
