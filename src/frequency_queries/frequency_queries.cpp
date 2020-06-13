@@ -6,32 +6,39 @@
 #include "frequency_queries.h"
 
 
-bool containsFrequency(const map<int, int>& data, int freq){
-    for( const auto& kv : data){
-        if(kv.second == freq){
-            return true;
-        }
-    }
-    return false;
-}
-
 vector<int> freqQuery(vector<vector<int>> queries){
 
     map<int, int> data;
+    map<int, int> frequencies;
     vector<int> response;
 
     for(const vector<int>& query : queries){
-        switch (query[0]) {
+        int op = query[0];
+        int val = query[1];
+
+        switch (op) {
             case 1: {
-                data[query[1]] += 1;
+                if(data.count(val)){
+                    --frequencies[data[val]];
+                }
+                ++data[val];
+                ++frequencies[data[val]];
                 break;
             }
             case 2: {
-                data[query[1]] = max(data[query[1]] - 1, 0);
+                if(data.count(val) and data[val]){
+                    --frequencies[data[val]];
+                    --data[val];
+                    ++frequencies[data[val]];
+                }
                 break;
             }
             case 3:{
-                response.push_back(containsFrequency(data, query[1]));
+                if(val == 0){
+                    response.push_back(0);
+                } else {
+                    response.push_back(frequencies[val]>0);
+                }
                 break;
             }
             default:
