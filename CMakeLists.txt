@@ -15,4 +15,7 @@ add_subdirectory(src/sherlock_and_anagrams)
 include_directories(src/count_triplets_1)
 add_subdirectory(src/count_triplets_1)
 
+include_directories(src/frequency_queries)
+add_subdirectory(src/frequency_queries)
+
 add_subdirectory(test)

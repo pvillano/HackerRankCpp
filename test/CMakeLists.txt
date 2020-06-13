@@ -19,3 +19,8 @@ target_link_libraries(test_count_triplets_1 gtest gtest_main)
 
 configure_file(test_count_triplets_1_input_03.txt test_count_triplets_1_input_03.txt COPYONLY)
 configure_file(test_count_triplets_1_input_06.txt test_count_triplets_1_input_06.txt COPYONLY)
+
+add_executable(test_frequency_queries test_frequency_queries.cpp)
+
+target_link_libraries(test_frequency_queries frequency_queries_lib)
+target_link_libraries(test_frequency_queries gtest gtest_main)
