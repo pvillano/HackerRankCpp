@@ -24,3 +24,8 @@ add_executable(test_frequency_queries test_frequency_queries.cpp)
 
 target_link_libraries(test_frequency_queries frequency_queries_lib)
 target_link_libraries(test_frequency_queries gtest gtest_main)
+
+add_executable(test_sherlock_and_valid_string test_sherlock_and_valid_string.cpp)
+
+target_link_libraries(test_sherlock_and_valid_string sherlock_and_valid_string_lib)
+target_link_libraries(test_sherlock_and_valid_string gtest gtest_main)

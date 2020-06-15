@@ -1,0 +1,3 @@
+project(Playground)
+
+add_library(sherlock_and_valid_string_lib STATIC sherlock_and_valid_string.cpp sherlock_and_valid_string.h)

@@ -18,4 +18,7 @@ add_subdirectory(src/count_triplets_1)
 include_directories(src/frequency_queries)
 add_subdirectory(src/frequency_queries)
 
+include_directories(src/sherlock_and_valid_string)
+add_subdirectory(src/sherlock_and_valid_string)
+
 add_subdirectory(test)
